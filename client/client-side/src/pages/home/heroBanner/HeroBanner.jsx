@@ -26,13 +26,17 @@ const HeroBanner = () => {
 
   //обработка запроса
   const searchQueryHandler = (event) => {
-    if (event.key === "Enter" && query.length > 0) {
+    if (event.key === "Enter" && query.length > 0  ) {
       navigate(`/search/${query}`);
       console.log("rhuma");
     }
     console.log("rhuma");
   };
-
+  const searchButton = () => {
+    if(query.length > 0){
+    navigate(`/search/${query}`);
+    }
+  }
   return (
     <div className="heroBanner">
       {/* загрузка изображений  */}
@@ -55,7 +59,7 @@ const HeroBanner = () => {
               onKeyUp={searchQueryHandler}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <button>Search</button>
+            <button onClick={searchButton} >Search</button>
           </div>
         </div>
       </ContentWrapper>

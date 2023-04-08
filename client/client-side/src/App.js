@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchDataFromApi } from "./config/api";
 import { getApiConfiguration } from "./store/homeSlice";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Header from "./components/header/index.jsx";
+import Header from "./components/header/index.jsx";
 // import Footer from "./components/footer/index.jsx";
 import Home from "./pages/home/Home.jsx";
 import Details from "./pages/details/Details.jsx";
@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-    {/* <Header/> */}
+    <Header/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
