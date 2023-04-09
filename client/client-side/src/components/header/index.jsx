@@ -23,8 +23,8 @@ const Header = () => {
   // возвращает текущую локацию (адресс url, поисковый адресс так сказать).
   const location = useLocation();
 
-  console.log(window)
-  console.log(window.scrollTo)
+  // console.log(window)
+  // console.log(window.scrollTo)
 
   useEffect(() => {
   window.scrollTo(0, 0)
@@ -33,7 +33,7 @@ const Header = () => {
 
   const controlNavbar = () => {
     // ваууу, мэджик. Передаёт значение скролла.
-    console.log(window.scrollY)
+    // console.log(window.scrollY)
     if(window.scrollY > 200){
       if(window.scrollY > lastScroll && !burgerMenu ){
         setShow("hide")
@@ -117,7 +117,7 @@ const Header = () => {
      ( 
       <div className="searchBar">
         <ContentWrapper>
-          <div className={`searchInput ${showSearch === false ? "searchInputClose" : ""}`}>
+          <div className="searchInput">
             <input
               type="text"
               placeholder="Search for a movie or tv show ..."

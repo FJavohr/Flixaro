@@ -16,7 +16,7 @@ const HeroBanner = () => {
   const navigate = useNavigate();
 
   const { data, loading } = useFetch("/movie/upcoming");
-  // console.log(loading)
+  console.log(loading)
   useEffect(() => {
     const bg =
       url.backdrop +
@@ -28,9 +28,9 @@ const HeroBanner = () => {
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0  ) {
       navigate(`/search/${query}`);
-      console.log("rhuma");
+      // console.log("rhuma");
     }
-    console.log("rhuma");
+    // console.log("rhuma");
   };
   const searchButton = () => {
     if(query.length > 0){
@@ -53,7 +53,7 @@ const HeroBanner = () => {
             Заходите почитать описнаие фильма и посмотреть только лишь трейлеры, хы     
           </span>
           <span className="subTitle">
-            Блин ! Могли ведь сделать API с фильмами
+            Блин ! Могли ведь сделать API с фильмами, которые можно было бы полноценно посмотреть -_-
           </span>
           <div className="searchInput">
             <input
