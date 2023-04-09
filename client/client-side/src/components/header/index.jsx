@@ -67,7 +67,7 @@ const Header = () => {
 
   const openSearch = () => {
     setBurgerMenu(false);
-    setShowSearch(true);
+    setShowSearch(!showSearch);
   };
   const openBurgerMenu = () => {
     setBurgerMenu(true);
@@ -83,23 +83,26 @@ const Header = () => {
       }
       setBurgerMenu(false)
   }
+
+  // спустя сто лет, решил написать функцию, которая при нажатии меняет current значение showSearch на противоположное ему и следовательно производит появление или закрытие элемента поиска. 
+  const setShowSearchHandler = () => {
+    setShowSearch(!showSearch)
+  }
   return ( 
     // мэджик: появление/исчезновение бургер меню в зависимости
     <header className={`header ${burgerMenu ? "mobileView" : ""} ${show} `}>
-      <ContentWrapper>
         <div className="logo">
-          <img onClick={() => navigate("/")}  src={logo} alt="logotip ne rabotaet" />
+          <img onClick={() => navigate("/")} src={logo} alt="logotip ne rabotaet" />
         </div>
         <ul className="menuItems">
           <li className="menuItem" onClick={() => navigationHandler("movie")} >Movies</li>
           <li className="menuItem" onClick={() => navigationHandler("tv")} >TV Shows</li>
-          <li className="menuItem" onClick={openSearch} >
-            <HiOutlineSearch />
+          <li className={`menuItem `} onClick={openSearch} >
+            <HiOutlineSearch onClick={setShowSearchHandler}/>
           </li>
         </ul>
-
         <div className="burgerMenuItems">
-          <HiOutlineSearch onClick={() => setBurgerMenu(false)} />
+          <HiOutlineSearch onClick={setShowSearchHandler} />
           {burgerMenu ? (
             <VscChromeClose
               onClick={() => {
@@ -110,12 +113,11 @@ const Header = () => {
             <SlMenu onClick={openBurgerMenu} />
           )}
         </div>
-      </ContentWrapper>
      {showSearch && 
      ( 
       <div className="searchBar">
         <ContentWrapper>
-          <div className="searchInput">
+          <div className={`searchInput ${showSearch === false ? "searchInputClose" : ""}`}>
             <input
               type="text"
               placeholder="Search for a movie or tv show ..."

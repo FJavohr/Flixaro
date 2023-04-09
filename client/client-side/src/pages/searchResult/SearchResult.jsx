@@ -1,10 +1,10 @@
 import React from 'react'
 
-import cls from './SearchResult.module.scss'
+import './SearchResult.scss'
 
 const SearchResult = () => {
   return (
-    <div>SearchResult</div>
+    <div></div>
   )
 }
 
