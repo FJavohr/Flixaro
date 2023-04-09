@@ -20,7 +20,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0.5;
+    opacity: 0.55;
     overflow: hidden;
     // мэджик 
     .lazy-load-image-background {
@@ -30,7 +30,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center;
+        object-position: 50% 10%;
       }
     }
   }

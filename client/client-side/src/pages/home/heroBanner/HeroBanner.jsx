@@ -24,7 +24,7 @@ const HeroBanner = () => {
     setBackground(bg);
   }, [data?.results, url.backdrop]);
 
-  //обработка запроса
+  //обработка запроса при условиях 
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0  ) {
       navigate(`/search/${query}`);
@@ -50,7 +50,10 @@ const HeroBanner = () => {
         <div className="heroBannerContent">
           <span className="title">Welcome</span>
           <span className="subTitle">
-            Заходите почитать и посмотреть только лишь трейлеры, хы     
+            Заходите почитать описнаие фильма и посмотреть только лишь трейлеры, хы     
+          </span>
+          <span className="subTitle">
+            Блин ! Могли ведь сделать API с фильмами
           </span>
           <div className="searchInput">
             <input
@@ -59,7 +62,7 @@ const HeroBanner = () => {
               onKeyUp={searchQueryHandler}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <button onClick={searchButton} >Search</button>
+            <button onClick={searchButton}> Search </button>
           </div>
         </div>
       </ContentWrapper>
