@@ -1,13 +1,13 @@
 import React from 'react'
-import './Popular.scss'
+import './Trending.scss'
 import ContentWrapper from '../../../components/contentWrapper/ContentWrapper'
 
-
-const Popular = () => {
+// на TMBD этот отдел называется trending 
+const Trending = () => {
 
   return (
     <div>hurma</div>
   )
 }
 
-export default Popular
+export default Trending
