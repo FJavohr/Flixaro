@@ -28,7 +28,7 @@ const App = () => {
       }
       
       dispatch(getApiConfiguration(url));
-      
+
       console.log(res);
     });
   };
@@ -45,6 +45,7 @@ const App = () => {
       </Routes>
       <Footer/>
     </BrowserRouter>
+
   );
 };
 
