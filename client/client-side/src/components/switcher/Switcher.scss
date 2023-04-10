@@ -1,0 +1,39 @@
+.switching { 
+  height: 34px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 2px;
+  justify-content: space-between;
+ 
+  .switchItems{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    position: relative;
+    .switchItem{
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      color: var(--black);
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+      transition: color ease 0.2s;
+      &.active{
+        color: white;
+      }
+    }
+    .movingBg{
+      height: 30px;
+      width: 100px;
+      border-radius: 15px;
+      background-image: var(--gradient);
+      position: absolute;
+      left: 0;
+      transition: left cubic-bezier(0.88, -0.35, 0.565, 1.35) 0.2s;
+    }
+  }
+}
