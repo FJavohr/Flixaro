@@ -13,6 +13,7 @@ import Img from '../lazyLoadImage/img'
 import backfall from '../../assets/backfall.png'
 import ContentWrapper from '../contentWrapper/ContentWrapper'
 import CircleRating from '../circleRating/CircleRating';
+import Genres from '../genres/Genres';
 // import CircleRating from "../circleRating/CircleRating";
 
 const Corousel = ({data, loading}) => {
@@ -23,6 +24,14 @@ const Corousel = ({data, loading}) => {
   // console.log(caroselContainer); 
   console.log(data)
   const navigation = (dir) => { 
+    const container = carouselContainer.current;
+
+    const scrollAmount = dir === "left" ? container.scrollLeft - (container.offsetWidth + 20) : container.scrollLeft + (container.offsetWidth + 20)
+
+    container.scrollTo({
+      behavior: "smooth",
+      left: scrollAmount
+    })
 
   } 
 
@@ -51,16 +60,19 @@ const Corousel = ({data, loading}) => {
       />
     {!loading ? 
     (
-      <div className="carouselItems">
-        {data?.map(({id, poster_path, title, name, release_Date, vote_average}) => {
+      <div className="carouselItems" 
+      ref={carouselContainer}
+      >
+        {data?.map(({id, genre_ids, poster_path, title, name, media_type, release_Date, vote_average}) => {
           const posterUrl = poster_path ? url.poster + poster_path : (<div>U have some problems</div>)
           console.log(posterUrl)
           return (
-            <div className="carouselItem" key={id}>
+            <div className="carouselItem" key={id} onClick={() => navigate(`/${media_type}/${id}`)}>
               <div className="posterBlock">
                 <Img src={posterUrl} />
                 {/* fixed - округляет до определённых десятков  */}
                 <CircleRating rating={vote_average.toFixed(1)}/>
+                <Genres data={genre_ids.slice(0,2) } />
               </div>
               <div className="textBlock">
                 <span className="title">
