@@ -4,6 +4,7 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from 'react-icons/bs'
+
 import { useNavigate } from 'react-router-dom'
 import './Carousel.scss'
 import { useSelector } from 'react-redux'
@@ -11,10 +12,11 @@ import { useSelector } from 'react-redux'
 import Img from '../lazyLoadImage/img'
 import backfall from '../../assets/backfall.png'
 import ContentWrapper from '../contentWrapper/ContentWrapper'
+import CircleRating from '../circleRating/CircleRating';
 // import CircleRating from "../circleRating/CircleRating";
 
 const Corousel = ({data, loading}) => {
-  const caroselContainer = useRef();
+  const carouselContainer = useRef();
   const {url} = useSelector((state) => state.home)
   // console.log(url)
   const navigate = useNavigate();
@@ -50,13 +52,15 @@ const Corousel = ({data, loading}) => {
     {!loading ? 
     (
       <div className="carouselItems">
-        {data?.map(({id, poster_path, title, name, release_Date }) => {
+        {data?.map(({id, poster_path, title, name, release_Date, vote_average}) => {
           const posterUrl = poster_path ? url.poster + poster_path : (<div>U have some problems</div>)
           console.log(posterUrl)
           return (
             <div className="carouselItem" key={id}>
               <div className="posterBlock">
                 <Img src={posterUrl} />
+                {/* fixed - округляет до определённых десятков  */}
+                <CircleRating rating={vote_average.toFixed(1)}/>
               </div>
               <div className="textBlock">
                 <span className="title">
@@ -74,7 +78,6 @@ const Corousel = ({data, loading}) => {
     :
     (
      <div className="loadingSkeleton">
-      {skItem()}
       {skItem()}
       {skItem()}
       {skItem()}
