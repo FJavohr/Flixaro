@@ -25,9 +25,12 @@ const DetailsBanner = ({ video, crew }) => {
 
   const director = crew?.filter((filtered) => filtered.job === "Director");
 
-  const writer = crew?.filter((filtered) => filtered.job === "Screenplay" || filtered.job === "Story" || filtered.job === "Writer" )
-
-
+  const writer = crew?.filter(
+    (filtered) =>
+      filtered.job === "Screenplay" ||
+      filtered.job === "Story" ||
+      filtered.job === "Writer"
+  );
 
   return (
     <div className="detailsBanner">
@@ -91,8 +94,7 @@ const DetailsBanner = ({ video, crew }) => {
                         )}
                         {data.runtime && (
                           <div className="infoItem">
-                            <span className="text bold">Runtime: 
-                            {" "}</span>
+                            <span className="text bold">Runtime: </span>
                             <span className="text">
                               {toHoursAndMinutes(data.runtime)}
                             </span>
@@ -101,15 +103,42 @@ const DetailsBanner = ({ video, crew }) => {
                       </div>
                       {director?.length > 0 && (
                         <div className="info">
-                          <span className="text bold">
-                        Director: {" "}
-                          </span>
+                          <span className="text bold">Director: </span>
                           <span className="text">
-                            {
-                              director.map((d,i) => (
-                                <span key={i}>{d.name}</span>
-                              ) )
-                            }
+                            {director.map((d, i) => (
+                              <span key={i}>
+                                {d.name}
+                                {director.length - 1 !== i && ", "}
+                              </span>
+                            ))}
+                          </span>
+                        </div>
+                      )}
+
+                      {writer?.length > 0 && (
+                        <div className="info">
+                          <span className="text bold">Writer: </span>
+                          <span className="text">
+                            {writer?.map((d, i) => (
+                              <span key={i}>
+                                {d.name}
+                                {writer.length - 1 !== i && ", "}
+                              </span>
+                            ))}
+                          </span>
+                        </div>
+                      )}
+
+                      {data?.created_by?.length > 0 && (
+                        <div className="info">
+                          <span className="text bold"> Creator: </span>
+                          <span className="text">
+                            {data?.created_by?.map((d, i) => (
+                              <span key={i}>
+                                {d.name}
+                                {data?.created_by.length - 1 !== i && ", "}
+                              </span>
+                            ))}
                           </span>
                         </div>
                       )}

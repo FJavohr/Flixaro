@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom";
 const TopRated = () => {
   const [endpoint, setEndpoint] = useState("movie");
   const { data, loading } = useFetch(`/${endpoint}/popular`);
-  console.log(endpoint)
-  console.log(loading);
+  // console.log(endpoint)
+  // console.log(loading);
   //почему нельзя передавать switch ?
   const onSwitchChange = (switcher) => {
     setEndpoint(switcher === "Movies" ? "movie" : "tv");

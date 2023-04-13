@@ -22,7 +22,7 @@ const Corousel = ({data, loading,endpoint} ) => {
   // console.log(url)
   const navigate = useNavigate();
   // console.log(caroselContainer); 
-  console.log(data)
+  // console.log(data)
   const navigation = (dir) => { 
     const container = carouselContainer.current;
 
@@ -65,7 +65,6 @@ const Corousel = ({data, loading,endpoint} ) => {
       >
         {data?.map(({id, genre_ids, poster_path, title, name, media_type, release_Date, vote_average}) => {
           const posterUrl = poster_path ? url.poster + poster_path : (<div>U have some problems</div>)
-          console.log(posterUrl)
           return (
             <div className="carouselItem" key={id} onClick={() => navigate(`/${media_type || endpoint}/${id}`)}>
               <div className="posterBlock">

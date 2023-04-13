@@ -8,7 +8,7 @@ import Corousel from '../../../components/carousel/Carousel'
 const Trending = () => {
   const [endpoint, setEndpoint] = useState("day");
   const { data, loading } = useFetch(`/trending/all/${endpoint}`);
-  console.log(loading)
+  // console.log(loading)
   //почему нельзя передавать switch ?
   const onSwitchChange = (switcher) => {
     setEndpoint(switcher === "Day" ? "day" : "week");

@@ -13,13 +13,13 @@ import SearchResult from "./pages/searchResult/SearchResult.jsx";
 const App = () => {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.home);
-  console.log(url);
+  // console.log(url);
 
   useEffect(() => {
     fetchApiConfig();
     genresCall()
   }, []);
-  console.log(useParams)
+  // console.log(useParams)
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
       const url = {
@@ -29,8 +29,7 @@ const App = () => {
       }
       
       dispatch(getApiConfiguration(url));
-
-      console.log(res);
+      // console.log(res);
     });
   };
 
@@ -45,7 +44,7 @@ const App = () => {
     })
     //all - возвращает массив значений от всех промисов, которые были ему переданы
     const data = await Promise.all(promises)
-    console.log(data)
+    // console.log(data)
     data.map(({genres}) => {
       return genres.map((item) => (allGenres[item.id] = item))
     })

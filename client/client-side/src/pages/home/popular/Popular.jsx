@@ -9,8 +9,8 @@ import { useNavigate } from "react-router-dom";
 const Popular = () => {
   const [endpoint, setEndpoint] = useState("movie");
   const { data, loading } = useFetch(`/${endpoint}/top_rated`);
-  console.log(endpoint)
-  console.log(loading);
+  // console.log(endpoint)
+  // console.log(loading);
   //почему нельзя передавать switch ?
   const onSwitchChange = (switcher) => {
     setEndpoint(switcher === "Movies" ? "movie" : "tv");
@@ -20,7 +20,7 @@ const Popular = () => {
     <div className="sectionCorousel">
       <ContentWrapper>
         <span className="carouselTitle">Popular</span>
-        {/* В TMDB можно только day and week, поэтому да ..  */}
+        {/* В TMDB можно только day and week зафетчить , поэтому да ..  */}
         <Switcher
           data={["Movies", "TV Shows "]}
           onSwitchChange={onSwitchChange}

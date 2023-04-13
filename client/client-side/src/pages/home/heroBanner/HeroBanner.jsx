@@ -10,13 +10,13 @@ const HeroBanner = () => {
   // ахалай махалай с бэкграудом | добовляем бэкграунд
   const [background, setBackground] = useState("");
   const [query, setQuery] = useState("");
-  console.log(background);
+  // console.log(background);
   const { url } = useSelector((state) => state.home);
 
   const navigate = useNavigate();
 
   const { data, loading } = useFetch("/movie/upcoming");
-  console.log(loading)
+  // console.log(loading)
   useEffect(() => {
     const bg =
       url.backdrop +
