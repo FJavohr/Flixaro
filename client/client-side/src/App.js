@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchDataFromApi } from "./config/api";
 import { getApiConfiguration, getGenres } from "./store/homeSlice";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Header from "./components/header/index.jsx";
 import Footer from "./components/footer/index.jsx";
 import Home from "./pages/home/Home.jsx";
@@ -19,7 +19,7 @@ const App = () => {
     fetchApiConfig();
     genresCall()
   }, []);
-
+  console.log(useParams)
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
       const url = {

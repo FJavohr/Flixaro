@@ -16,7 +16,7 @@ import CircleRating from '../circleRating/CircleRating';
 import Genres from '../genres/Genres';
 // import CircleRating from "../circleRating/CircleRating";
 
-const Corousel = ({data, loading}) => {
+const Corousel = ({data, loading,endpoint} ) => {
   const carouselContainer = useRef();
   const {url} = useSelector((state) => state.home)
   // console.log(url)
@@ -67,7 +67,7 @@ const Corousel = ({data, loading}) => {
           const posterUrl = poster_path ? url.poster + poster_path : (<div>U have some problems</div>)
           console.log(posterUrl)
           return (
-            <div className="carouselItem" key={id} onClick={() => navigate(`/${media_type}/${id}`)}>
+            <div className="carouselItem" key={id} onClick={() => navigate(`/${media_type || endpoint}/${id}`)}>
               <div className="posterBlock">
                 <Img src={posterUrl} />
                 {/* fixed - округляет до определённых десятков  */}

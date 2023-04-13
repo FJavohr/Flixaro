@@ -5,7 +5,7 @@ const Switcher = ({ data, onSwitchChange }) => {
   const [selectedSwitcher, setSelectedSwitcher] = useState(0);
   //двигаем налево и направо в зависимости состояния.
   const [left, setLeft] = useState(0);
-  const activeChanger = (swithcer, index) => {
+  const activeChanger = (switcher, index) => {
     setLeft(index * 100);
     setTimeout(() => {
       setSelectedSwitcher(index);
