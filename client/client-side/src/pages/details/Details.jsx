@@ -4,6 +4,10 @@ import './Details.scss'
 import DetailsBanner from './detailBanner/DetailsBanner';
 import useFetch from '../../hooks/useFetch';
 import Cast from './cast/Cast';
+import VideoSection from './videosSection/VideoSection';
+import Similar from './carousels/Similar';
+import Recommedation from './carousels/Recommedation';
+
 
 const Details = () => {
 
@@ -15,6 +19,9 @@ const Details = () => {
   <div>
     <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
     <Cast data={credits?.cast} loading={creditsLoading} />
+    <VideoSection data={data} loading={loading} />
+    <Similar mediaType={mediaType} id={id} />
+    <Recommedation mediaType={mediaType} id={id} />
   </div> 
   ) 
 }

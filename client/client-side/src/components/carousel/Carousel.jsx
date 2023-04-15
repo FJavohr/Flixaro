@@ -16,7 +16,7 @@ import CircleRating from '../circleRating/CircleRating';
 import Genres from '../genres/Genres';
 // import CircleRating from "../circleRating/CircleRating";
 
-const Corousel = ({data, loading,endpoint} ) => {
+const Corousel = ({data, loading,endpoint, title} ) => {
   const carouselContainer = useRef();
   const {url} = useSelector((state) => state.home)
   // console.log(url)
@@ -47,11 +47,17 @@ const Corousel = ({data, loading,endpoint} ) => {
       )
     }
 
+    // function hurma(){
+    //   return this.style.animationPlayState = 'stop'
+    // }
+
   return (
     <div className='carousel'> 
+    {title && <div className="carouselTitle">{title}</div> }
     <ContentWrapper>
       <BsFillArrowLeftCircleFill
         className='carouselLeftNav arrow' 
+        // onMouseOver={() => hurma()}
         onClick={() => navigation("left")}
       />
       <BsFillArrowRightCircleFill
