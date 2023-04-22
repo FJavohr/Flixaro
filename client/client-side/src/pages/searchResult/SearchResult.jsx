@@ -44,7 +44,7 @@ const SearchResult = () => {
   };
 
   useEffect(() => {
-    setPageNum(1);
+    setPageNum(1)
     fetchInitialData();
   }, [query]);
 
@@ -63,11 +63,11 @@ const SearchResult = () => {
               <InfiniteScroll 
               className="content"
               dataLength={data.results.length || [] }
-              next={fetchNextPageData}
-              hadMore={pageNum <= data.total_pages}
+              next={fetchNextPageData()}
+              hadMore={pageNum <= data?.total_pages}
               loader={<Spinner/>}
                >
-                {data.results.map((item, index) => {
+                {data?.results.map((item, index) => {
                   if (item.media_type === "person") return;
                   return <MovieCard key={index} data={item} fromSearch={true} ></MovieCard>;
                 })}

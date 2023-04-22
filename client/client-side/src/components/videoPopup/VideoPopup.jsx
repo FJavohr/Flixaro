@@ -25,7 +25,6 @@ const VideoPopup = ({show, setShow, videoId, setVideoId}) => {
     hieght="100%"
     playing={false}
     >
-
     </ReactPlayer>
   </div>
       </div>

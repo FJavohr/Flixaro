@@ -10,7 +10,7 @@ const Switcher = ({ data, onSwitchChange }) => {
     setTimeout(() => {
       setSelectedSwitcher(index);
     }, 400);
-    onSwitchChange();
+    onSwitchChange(switcher, index);
   };
   return (
     <div className="switching">

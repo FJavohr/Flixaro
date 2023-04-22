@@ -7,7 +7,7 @@ import Header from "./components/header/index.jsx";
 import Footer from "./components/footer/index.jsx";
 import Home from "./pages/home/Home.jsx";
 import Details from "./pages/details/Details.jsx";
-import Explore from "./pages/404/pageNotFound.jsx";
+import Explore from "./pages/explore/Explore";
 // import pageNotFound from "./pages/404/pageNotFound.jsx";
 import SearchResult from "./pages/searchResult/SearchResult.jsx";
 const App = () => {
