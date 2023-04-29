@@ -11,7 +11,7 @@ const Popular = () => {
   const { data, loading } = useFetch(`/${endpoint}/top_rated`);
   // console.log(endpoint)
   // console.log(loading);
-  //почему нельзя передавать switch ?
+  //почему нельзя передавать switch ? Точно, потому как уже зарезервированно. ... 
   const onSwitchChange = (switcher) => {
     setEndpoint(switcher === "Movies" ? "movie" : "tv");
   };

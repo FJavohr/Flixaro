@@ -1,9 +1,9 @@
 import React from 'react'
-import cls from './pageNotFound.module.scss'
+import './pageNotFound.scss'
 
 const pageNotFound = () => {
   return (
-    <div className={cls.root} >pageNotFound</div>
+    <div className="wrapper" >pageNotFound</div>
   )
 }
 

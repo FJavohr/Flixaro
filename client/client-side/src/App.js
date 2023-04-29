@@ -10,6 +10,7 @@ import Details from "./pages/details/Details.jsx";
 import Explore from "./pages/explore/Explore";
 // import pageNotFound from "./pages/404/pageNotFound.jsx";
 import SearchResult from "./pages/searchResult/SearchResult.jsx";
+import SideBar from "./components/sideBar/SideBar";
 const App = () => {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.home);
@@ -57,6 +58,7 @@ const App = () => {
   return (
     <BrowserRouter>
     <Header/>
+    <SideBar/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />

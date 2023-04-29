@@ -29,7 +29,7 @@ const Cast = ({ data, loading }) => {
                                 ? url.profile + item.profile_path
                                 : "hurma";
                             return (
-                                <div key={item.id} className="listItem">
+                                <div key={item.id} onClick={console.log('hurma')} className="listItem">
                                     <div className="profileImg">
                                         <Img src={imgUrl} />
                                     </div>

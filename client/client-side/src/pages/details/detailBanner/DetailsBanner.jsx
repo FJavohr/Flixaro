@@ -41,12 +41,12 @@ const DetailsBanner = ({ video, crew }) => {
         <>
           {!!data && (
             <React.Fragment>
-            <ContentWrapper>
-              <div className="backdrop-img">
-                <Img src={url.backdrop + data.backdrop_path} />
-              </div>
-              <div className="opacity-layer"></div>
-              
+              <ContentWrapper>
+                <div className="backdrop-img">
+                  <Img src={url.backdrop + data.backdrop_path} />
+                </div>
+                <div className="opacity-layer"></div>
+
                 <div className="content">
                   <div className="left">
                     {data.poster_path ? (
@@ -155,12 +155,12 @@ const DetailsBanner = ({ video, crew }) => {
                     )}
                   </div>
                 </div>
-              <VideoPopup
+                <VideoPopup
                   show={show}
                   setShow={setShow}
                   videoId={videoId}
                   setVideoId={setVideoId}
-                />  
+                />
               </ContentWrapper>
             </React.Fragment>
           )}
